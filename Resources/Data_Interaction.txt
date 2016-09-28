@@ -1,0 +1,22 @@
+*** Settings ***
+Library           ../Libraries/data_interaction.py
+
+*** Keywords ***
+Get Data From Excel File
+    [Arguments]    ${path_to_excel_file}    ${sheet_name}    ${set_suite_variable}=True
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: Get data from excel file
+    ...
+    ...    Arguments:
+    ...
+    ...    - path_to_excel_file [string]: absolute path to your excel file
+    ...
+    ...    - sheet_name [string]: which sheet will get data
+    ...
+    ...    - set_suite_variable [boolean]: if you don't want to set a suite variable default ${s_data}, set False
+    ...
+    ...    Return: this keyword create a suite variable if you don't change set_suite_variable variable. It also return a dictionary which contains your data
+    ${s_data}=    Get Test Data By Sheet Name    ${path_to_excel_file}    ${sheet_name}
+    Run Keyword If    ${set_suite_variable}==True    Set Suite Variable    ${s_data}
+    [Return]    ${s_data}

@@ -1,0 +1,12 @@
+*** Settings ***
+Resource          ../Resources/Variables.txt
+
+*** Test Cases ***
+[001]_Log in successful
+    [Tags]    review
+    Log    1
+
+[002]_Log in unsuccessful - incorrect password
+    [Tags]    review
+    Log    2
+    Fail    fail

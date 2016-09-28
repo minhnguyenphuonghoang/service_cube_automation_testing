@@ -1,0 +1,9 @@
+*** Settings ***
+Resource          Variables.txt
+
+*** Keywords ***
+Delete all emails before executing test script
+    [Arguments]    ${email_address}=${s_data['${t_test_caseID}']['email address']}    ${password}=${s_data['${t_test_caseID}']['password']}
+    Connect To Email    ${email_address}    ${password}
+    Email.Delete All Email
+    Email.Close Connection

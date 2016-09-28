@@ -1,0 +1,89 @@
+# Author: minh.nguyen
+# Created Date: August 17, 2016
+# Description: This file shows you the instruction on how to:
+				1. Set libraries, keywords, variables' name
+				2. Organize test scripts, keywords
+
+I. Organize test scripts, keyword
+1. Structure: 
+
+Project folder	
+	| Test Suites  	
+		| Suite Name 001.txt
+		| Suite Name 002.txt
+		...
+	| GuiObjects
+		| Python File 001.py
+		| Python File 002.py
+		...
+	| Libs
+		| Library File 001.py
+		| Library File 002.py
+		...
+	| Resources
+		| ScreenName001.txt
+		| ScreenName002.txt
+		| Variables.txt
+		...
+	| High Level Keywords
+		| ScreenName001_HighLevelKeywords.txt
+		| ScreenName002_HighLevelKeywords.txt
+	| DataSet
+		| Spread Sheet 001.xlsx
+		| Spread Sheet 002.xlsx
+
+
+
+- Our test scripts will be stored in the text files (*.txt) also
+known as test suites
+- A test suite isn't allowed to consist more than 30 test scripts
+- 
+
+II. General:
+1. Documentation:
+- Everything is, will be written has to be documented. As
+discussion, our documentation should be devided into 3 sections:
+	+ Author: <the author/creator name>
+	+ Created Date: [Optional field]
+	+ Description: this is the most important section. You might
+find the answers for 2 different questions: what and how
+	+ Arguments: [data_type] (e.g: number_of_characters [int])
+	+ Return: [Optional]
+
+- Example:
+Author: minh.nguyen
+Created Date: August 17, 2016
+Description: this method is used for generating a random string
+Arguments:
+- length [int]: number of characters of the returned string 
+- contain_alphabets [boolean]: Should random string contain alphabets?
+- contain_numbers [boolean]: Should random string contain numbers?
+Return: a random string
+
+
+2. Naming convention:
+2.1 Library
++ Library: As designed, we implement library as Python syntax 
+then import them into Robot Framework. So coding and naming 
+covention should follow up Python Documentation
+https://www.python.org/dev/peps/pep-0008/
+
+2.2 Keyword: According to the section I.1, keywords have separated 
+into 2 folder. Normal keywords and High Level keywords
+- Normal keyword: all keywords should be stored in the Screen
+Name.txt
+- High Level Keywords: these keywords are used for making test
+scripts are easy to read (looks like natural language).
+
+
+
+
+
+
+
+
+
+
+
+
+

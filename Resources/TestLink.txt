@@ -1,0 +1,61 @@
+*** Settings ***
+Library           ../Libraries/TestlinkAPIClient.py    ${tl_APIKey}    ${tl_test_planID}    ${tl_build_description}
+
+*** Variables ***
+${tl_APIKey}      ${EMPTY}
+${tl_test_planID}    ${EMPTY}
+${tl_build_description}    This is test automation running on robot framework
+${tl_is_report_to_testLink}    False    # True or False
+
+*** Keywords ***
+Create New Build
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: New build is created by getting the current timestamp. "Create New Build" keyword should be used in "Prerequisites" section of the Robot Framework.
+    ${gl_buildID}=    Run Keyword If    '${tl_is_report_to_testLink.lower()}'=='true'    Create Build
+    Set Global Variable    ${gl_buildID}
+
+Evaluate TestCase ID
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: Test cases in Robot Frameowrk should be named as "ID_xxxx-Test Case Name" where xxxx is the internal ID of the test case in TestLink.
+    ${t_test_caseID}=    GetTestCaseIDFromTestName    ${TEST_NAME}
+    Set Test Variable    ${t_test_caseID}    ${t_test_caseID}
+
+Report Test Status
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: Check whether user wants to submit test case result into testlink
+    Run Keyword If    '${tl_is_report_to_testLink.lower()}'=='true'    TestCase Result
+
+TestCase Fail
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: Submit test result to testlink with the result is "fail"
+    ReportTCResult    ${test_caseID}    ${buildID}    f    ${TEST_MESSAGE}
+
+TestCase Pass
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: Submit test result to testlink with the result is "pass"
+    Report TC Result    ${test_caseID}    ${buildID}    p    ${TEST_MESSAGE}
+
+TestCase Result
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: If testcase level test status message is needed then use variable ${TEST_STATUS} and if suite level status message is needed, use ${SUITE_STATUS}. If you use SUITE_STATUS for a suite that has 10 test cases and even if one fails, the whole test suite is marked as fail.
+    Run Keyword If    '${TEST_STATUS}' == 'PASS'    TestCase Pass
+    Run Keyword If    '${TEST_STATUS}' == 'FAIL'    TestCase Fail
+
+Use Existing Build
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: gets the lastest buildID from testlink then creates a global variable gl_buildID to store it
+    ${gl_buildID}=    Run Keyword If    '${tl_is_report_to_testLink.lower()}'=='true'    Existing Build
+    Set Global Variable    ${gl_buildID}
+
+Use TestLink
+    [Documentation]    Author: minh.nguyen
+    ...
+    ...    Description: use testLink libray (to get id from test case name)
+    Evaluate TestCase ID

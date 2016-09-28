@@ -1,0 +1,14 @@
+*** Settings ***
+Resource          Application_Interaction.txt
+Library           Selenium2Library
+Library           ../Libraries/Email.py
+Resource          Email.txt
+Resource          Data_Interaction.txt
+Resource          TestLink.txt
+Library           String
+
+*** Variables ***
+${url}            https://webstg.filestring.net/
+${browser}        ff
+${alias}          FileString
+${gl_timeout}     10

@@ -1,0 +1,20 @@
+*** Settings ***
+Resource          Variables.txt
+
+*** Keywords ***
+Open AUT and Navigate to test page
+    [Arguments]    ${url}=${url}    ${browser}=${browser}    ${alias}=${alias}
+    [Documentation]    Author: hoang.nguyen
+    ...
+    ...    Description: Open AUT and navigate to application url
+    ...
+    ...    Arguments:
+    ...    - url: url of test page
+    ...
+    ...    - browser: which browser is used for performing test scripts (gc, ff, ie, safari...)
+    ...
+    ...    - alias: named an instance of browser
+    Comment    ${safari_desired_capabilities}=    Create Dictionary    cleanSession=True    browserName=safari    platform=MAC
+    Comment    Open Browser    ${url}    ${browser}    ${alias}    desired_capabilities=${safari_desired_capabilities}
+    Open Browser    ${url}    ${browser}    ${alias}
+    Run Keyword If    '${browser}'!='safari'    Maximize Browser Window
