@@ -6,6 +6,9 @@ Resource          Email.txt
 Resource          Data_Interaction.txt
 Resource          TestLink.txt
 Library           String
+Resource          SignIn-AdminConsole.txt
+Resource          HomePage-AdminConsole.txt
+Resource          ResetPassword.txt
 
 *** Variables ***
 ${url}            http://52.88.126.240:8080/

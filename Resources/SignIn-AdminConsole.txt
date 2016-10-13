@@ -1,0 +1,39 @@
+*** Settings ***
+Resource          Variables.txt
+Variables         ../GuiObjects/SignIn_AdminConsole.py
+
+*** Keywords ***
+Input Email Address
+    [Arguments]    ${email_address}
+    Wait Until Page Contains Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Email Address text field couldn't be found on Sign In screen
+    Input Text    ${SignIn_Admin_EmailAddressTextField}    ${email_address}
+
+Input Password
+    [Arguments]    ${password}
+    Wait Until Page Contains Element    ${SignIn_Admin_PasswordTextField}    ${gl_timeout}    Password text field couldn't be found on Sign In screen
+    Input Text    ${SignIn_Admin_PasswordTextField}    ${password}
+
+Check stay signed in
+    Wait Until Page Contains Element    ${SignIn_Admin_StaySignInCheckbox}    ${gl_timeout}    Stay signed in check box couldn't be found on Sign In screen
+    Click Element    ${SignIn_Admin_StaySignInCheckbox}
+
+Click Sign In
+    Wait Until Page Contains Element    ${SignIn_Admin_SignInButton}    ${gl_timeout}    Sign In button couldn't be found on Sign In screen
+    Click Element    ${SignIn_Admin_SignInButton}
+
+Sign In
+    [Arguments]    ${email_address}    ${password}    ${check_stay_signed_in}=False
+    Input Email Address    ${email_address}
+    SignIn-AdminConsole.Input Password    ${password}
+    Run Keyword If    ${check_stay_signed_in}==True    Check stay signed in
+    Click Sign In
+
+Sign In successful
+    [Arguments]    ${email_address}    ${password}    ${check_stay_signed_in}=False
+    Sign In    ${email_address}    ${password}    ${check_stay_signed_in}
+    Wait Until Page Does Not Contain Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Sign in unsuccessful. Sign In text field still exist
+    Current screen is Home Page screen
+
+Click forgot password
+    Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Fogot Password link couldn't be found on Sign In screen
+    Click Element    ${SignIn_Admin_ForgotPasswordLink}

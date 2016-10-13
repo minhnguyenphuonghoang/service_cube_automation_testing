@@ -1,0 +1,10 @@
+*** Settings ***
+Resource          ../Resources/Variables.txt
+
+*** Keywords ***
+Check UI of Sign In screen - Admin Console
+    Wait Until Page Contains Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Email Address text filed couldn't be found on Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_PasswordTextField}    ${gl_timeout}    Password text filed couldn't be found on Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_StaySignInCheckbox}    ${gl_timeout}    Stay signed in check-box couldn't be found on Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_SignInButton}    ${gl_timeout}    Sign In button couldn't be found on Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Forgot password link couldn't be found on Sign In screen

@@ -1,32 +1,28 @@
 *** Settings ***
 Test Setup        Open AUT and Navigate to test page
 Test Teardown     Close All Browsers
-Resource          ../Resources/Variables.txt
+Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 
 *** Test Cases ***
 [56016]_Check UI Sign in page
     [Tags]    development
-    Log    temp
+    Check UI of Sign In screen - Admin Console
 
 [55914]_Open home page automatically when the user was login with "Stay signed in" successfully in the past
     [Tags]    development
+    Sign In successful    qa-automation@yopmail.com    12345678    ${True}
+    Selenium2Library.Go To    ${url}
+    Current screen is Home Page screen
 
 [55916]_Go to Forgot password page after clicking on Forgot password link
     [Tags]    development
+    Click forgot password
+    Current screen is Reset Password screen
 
 [56166]_Check max length for email field (254 chars)
     [Tags]    development
 
 [56973]_Check max length for password field (40 char)
-    [Tags]    development
-
-[57276]_Sign in with new password after change password
-    [Tags]    development
-
-[55922]_Check UI for user has permission after sign in successfully
-    [Tags]    development
-
-[55924]_Check UI for user has no permission after sign in successfully
     [Tags]    development
 
 [55936]_Sign in with valid email and password
