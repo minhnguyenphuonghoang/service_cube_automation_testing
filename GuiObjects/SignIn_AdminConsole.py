@@ -7,6 +7,6 @@ SignIn_Admin_PasswordTextField = '//input[@id="password"]'
 SignIn_Admin_StaySignInCheckbox = '//input[@id="keepSession"]/following-sibling::label'
 SignIn_Admin_SignInButton = '//button[@id="login"]'
 SignIn_Admin_ForgotPasswordLink = '//a[@href="/Account/ResetPassword"]'
-#SignIn_Admin_
-#SignIn_Admin_
+SignIn_Admin_EmailErrorMessage = '//input[@id="email"]/following-sibling::span'
+SignIn_Admin_PasswordErrorMessage = '//input[@id="password"]/following-sibling::span'
 

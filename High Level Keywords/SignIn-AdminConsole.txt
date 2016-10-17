@@ -8,3 +8,14 @@ Check UI of Sign In screen - Admin Console
     Wait Until Page Contains Element    ${SignIn_Admin_StaySignInCheckbox}    ${gl_timeout}    Stay signed in check-box couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_SignInButton}    ${gl_timeout}    Sign In button couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Forgot password link couldn't be found on Sign In screen
+
+Email field doesn't allow to input more than 254 chars
+    ${email}=    Get Value    ${SignIn_Admin_EmailAddressTextField}
+    ${email_length}=    Get Length    ${email}
+    Should Be Equal    ${email_length}    ${s_data['${t_testID}']['number of characters allowed']}    Email address text field should allow ${s_data['${t_testID}']['number of characters allowed']} characters but user can input more characters than expectation
+
+Password field doesn't allow to input more than 40 chars
+    Execute Javascript    document.getElementById('password').setAttribute('type','text')
+    ${password}=    Get Value    ${SignIn_Admin_PasswordTextField}
+    ${password_length}=    Get Length    ${password}
+    Should Be Equal    ${password_length}    ${s_data['${t_testID}']['number of characters allowed']}    Password text field should allow ${s_data['${t_testID}']['number of characters allowed']} characters but user can input more characters than expectation

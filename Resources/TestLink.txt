@@ -19,8 +19,8 @@ Evaluate TestCase ID
     [Documentation]    Author: minh.nguyen
     ...
     ...    Description: Test cases in Robot Frameowrk should be named as "ID_xxxx-Test Case Name" where xxxx is the internal ID of the test case in TestLink.
-    ${t_test_caseID}=    GetTestCaseIDFromTestName    ${TEST_NAME}
-    Set Test Variable    ${t_test_caseID}    ${t_test_caseID}
+    ${t_testID}=    GetTestCaseIDFromTestName    ${TEST_NAME}
+    Set Test Variable    ${t_testID}    ${t_testID}
 
 Report Test Status
     [Documentation]    Author: minh.nguyen

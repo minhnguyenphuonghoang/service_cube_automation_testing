@@ -37,3 +37,14 @@ Sign In successful
 Click forgot password
     Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Fogot Password link couldn't be found on Sign In screen
     Click Element    ${SignIn_Admin_ForgotPasswordLink}
+
+Sign In button is disabled
+    Element Should Be Disabled    ${SignIn_Admin_SignInButton}
+
+Sign In unsuccessful
+    [Arguments]    ${email_address}    ${password}    ${error_message}    ${display_below_email_field}=True
+    Sign In    ${email_address}    ${password}
+    Run Keyword If    ${display_below_email_field}==True    Wait Until Element Is Visible    ${SignIn_Admin_EmailErrorMessage}    ${gl_timeout}    Error message on Sign In screen couldn't be found
+    Run Keyword If    ${display_below_email_field}==True    Element Text Should Be    ${SignIn_Admin_EmailErrorMessage}    ${error_message}
+    Run Keyword If    ${display_below_email_field}==False    Wait Until Element Is Visible    ${SignIn_Admin_PasswordErrorMessage}    ${gl_timeout}    Error message on Sign In screen couldn't be found
+    Run Keyword If    ${display_below_email_field}==False    Element Text Should Be    ${SignIn_Admin_PasswordErrorMessage}    ${error_message}

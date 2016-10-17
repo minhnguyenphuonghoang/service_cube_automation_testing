@@ -4,4 +4,4 @@ Variables         ../GuiObjects/HomePage_AdminConsole.py
 
 *** Keywords ***
 Current screen is Home Page screen
-    Wait Until Page Contains Element    ${HomePage_Admin_Avatar}
+    Wait Until Page Contains Element    ${HomePage_Admin_Logout}    ${gl_timeout}    Current screen isnot Admin Home screen

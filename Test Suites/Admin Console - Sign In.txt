@@ -1,80 +1,65 @@
 *** Settings ***
-Test Setup        Open AUT and Navigate to test page
+Suite Setup       Get Data From Excel File    ${data_set_SignIn}    Sign In
+Test Setup        Run Keywords    Use TestLink    Open AUT and Navigate to test page
 Test Teardown     Close All Browsers
 Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 
 *** Test Cases ***
 [56016]_Check UI Sign in page
-    [Tags]    development
     Check UI of Sign In screen - Admin Console
 
 [55914]_Open home page automatically when the user was login with "Stay signed in" successfully in the past
-    [Tags]    development
-    Sign In successful    qa-automation@yopmail.com    12345678    ${True}
-    Selenium2Library.Go To    ${url}
+    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${True}
+    ${cookies}=    Selenium2Library.Get Cookies
+    Close Browser
+    Open AUT and Navigate to test page
+    Add cookies to browser    ${cookies}
+    Reload Page
     Current screen is Home Page screen
 
 [55916]_Go to Forgot password page after clicking on Forgot password link
-    [Tags]    development
     Click forgot password
     Current screen is Reset Password screen
 
 [56166]_Check max length for email field (254 chars)
-    [Tags]    development
+    Input Email Address    ${s_data['${t_testID}']['email address']}
+    Email field doesn't allow to input more than 254 chars
 
 [56973]_Check max length for password field (40 char)
-    [Tags]    development
+    SignIn-AdminConsole.Input Password    ${s_data['${t_testID}']['password']}
+    Password field doesn't allow to input more than 40 chars
 
 [55936]_Sign in with valid email and password
-    [Tags]    development
+    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
 
 [55938]_Sign in with UPPERCASE valid email
-    [Tags]    development
+    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
 
 [55940]_Sign in with Email has "space" in first and end
-    [Tags]    development
+    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
 
 [55942]_Sign in with new password after reset password
-    [Tags]    development
-
-[55946]_Sign in after changing email
     [Tags]    development
 
 [57279]_Sign in with old password after reset password
     [Tags]    development
 
 [57256]_Disable "Sign In" button when missing all fields (default)
-    [Tags]    development
-
-[55956]_Sign in with empty Password
-    [Tags]    development
-
-[55954]_Sign in with empty Email
-    [Tags]    development
+    Sign In button is disabled
+    Input Email Address    ${s_data['${t_testID}']['email address']}
+    Sign In button is disabled
+    Clear Element Text    ${SignIn_Admin_EmailAddressTextField}
+    SignIn-AdminConsole.Input Password    ${s_data['${t_testID}']['password']}
+    Sign In button is disabled
 
 [55970]_Sign in with a wrong password and show message
-    [Tags]    development
+    Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}    ${False}
 
 [55974]_Sign in with wrong email and show message
-    [Tags]    development
+    Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}    ${False}
 
 [55976]_Sign in with non existent email
-    [Tags]    development
-
-[55978]_Sign in with old password after change password
-    [Tags]    development
-
-[56160]_Sign in with old email after change email
-    [Tags]    development
-
-[55980]_Sign in without network
-    [Tags]    development
+    Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}    ${False}
 
 [55982]_Sign in with an invalid format email
-    [Tags]    development
-
-[56038]_Sign in with email has invated but not verify email
-    [Tags]    development
-
-[56998]_Sign in with new email after change but not verify
-    [Tags]    development
+    Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}

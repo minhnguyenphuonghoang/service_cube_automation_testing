@@ -18,3 +18,10 @@ Open AUT and Navigate to test page
     Comment    Open Browser    ${url}    ${browser}    ${alias}    desired_capabilities=${safari_desired_capabilities}
     Open Browser    ${url}    ${browser}    ${alias}
     Run Keyword If    '${browser}'!='safari'    Maximize Browser Window
+
+Add cookies to browser
+    [Arguments]    ${cookies}
+    @{list_of_cookies}=    Split String    ${cookies}    ;
+    :FOR    ${a_cookie}    IN    @{list_of_cookies}
+    \    ${cookie_name}    ${cookie_value}    Split String    ${a_cookie.strip()}    =
+    \    Add Cookie    ${cookie_name}    ${cookie_value}
