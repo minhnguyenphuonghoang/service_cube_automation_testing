@@ -3,11 +3,22 @@ Resource          ../Resources/Variables.txt
 
 *** Keywords ***
 Check UI of Sign In screen - Admin Console
+    Wait Until Page Contains Element    ${SignIn_Admin_Title}    ${gl_timeout}    Sign In title couldn't be found on Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_Description}    ${gl_timeout}    Sign In description couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Email Address text filed couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_PasswordTextField}    ${gl_timeout}    Password text filed couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_StaySignInCheckbox}    ${gl_timeout}    Stay signed in check-box couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_SignInButton}    ${gl_timeout}    Sign In button couldn't be found on Sign In screen
     Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Forgot password link couldn't be found on Sign In screen
+    Element Text Should Be    ${SignIn_Admin_Title}    ${s_data['${t_testID}']['title']}
+    Element Text Should Be    ${SignIn_Admin_Description}    ${s_data['${t_testID}']['description']}
+    ${place_holder}=    Get Element Attribute    ${SignIn_Admin_EmailAddressTextField}@placeholder
+    Should Be Equal    ${place_holder}    ${s_data['${t_testID}']['email place holder']}
+    ${place_holder}=    Get Element Attribute    ${SignIn_Admin_PasswordTextField}@placeholder
+    Should Be Equal    ${place_holder}    ${s_data['${t_testID}']['password place holder']}
+    Element Text Should Be    ${SignIn_Admin_StaySignInCheckbox}    ${s_data['${t_testID}']['stay signed in']}
+    Element Text Should Be    ${SignIn_Admin_SignInButton}    ${s_data['${t_testID}']['sign in button']}
+    Element Text Should Be    ${SignIn_Admin_ForgotPasswordLink}    ${s_data['${t_testID}']['forgot password']}
 
 Email field doesn't allow to input more than 254 chars
     ${email}=    Get Value    ${SignIn_Admin_EmailAddressTextField}
