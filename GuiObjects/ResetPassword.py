@@ -17,8 +17,14 @@ ResetPassword_EmailSentPopup_Title = '//div[contains(@class,"dialog")]/h3'
 ResetPassword_EmailSentPopup_Description = '//div[contains(@class,"dialog")]/p[2]'
 
 
-
-
+# Reset Password screen - Choose your new password screen
+ResetPassword_SetPassword_Title = '//form[contains(@class,"dialog")]/h3'
+ResetPassword_SetPassword_PasswordTextField = '//input[@id="newPass"]'
+ResetPassword_SetPassword_ConfirmPasswordTextField = '//input[@id="confirmPass"]'
+ResetPassword_SetPassword_ContinueButton = '//button[@id="continueBtn"]'
+ResetPassword_SetPassword_PasswordLengthError = '//span[@id="passLengthErr"]'
+ResetPassword_SetPassword_ConfirmPasswordLengthError = '//span[@id="passLengthErrConf"]'
+ResetPassword_SetPassword_ConfirmPasswordNotMatchError = '//span[@id="matchErr"]'
 
 
 
