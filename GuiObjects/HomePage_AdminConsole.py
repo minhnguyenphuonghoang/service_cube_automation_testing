@@ -3,5 +3,4 @@
 #
 
 HomePage_Admin_Avatar = '//div[@class="avatar"]'
-
 HomePage_Admin_Logout = '//input[@value="Logout"]'
