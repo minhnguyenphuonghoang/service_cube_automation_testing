@@ -48,3 +48,6 @@ Sign In unsuccessful
     Run Keyword If    ${display_below_email_field}==True    Element Text Should Be    ${SignIn_Admin_EmailErrorMessage}    ${error_message}
     Run Keyword If    ${display_below_email_field}==False    Wait Until Element Is Visible    ${SignIn_Admin_PasswordErrorMessage}    ${gl_timeout}    Error message on Sign In screen couldn't be found
     Run Keyword If    ${display_below_email_field}==False    Element Text Should Be    ${SignIn_Admin_PasswordErrorMessage}    ${error_message}
+
+Current screen is Sign In screen
+    Wait Until Page Contains Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Current screen isnot Sign In screen

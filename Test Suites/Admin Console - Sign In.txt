@@ -7,6 +7,7 @@ Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 *** Test Cases ***
 [56016]_Check UI Sign in page
     Check UI of Sign In screen - Admin Console
+    Sign In button is disabled
 
 [55914]_Open home page automatically when the user was login with "Stay signed in" successfully in the past
     Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${True}

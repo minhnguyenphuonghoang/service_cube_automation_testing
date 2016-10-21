@@ -1,6 +1,21 @@
+*** Settings ***
+Suite Setup       Get Data From Excel File    ${data_set_SignOut}    Sign Out
+Test Teardown     Close All Browsers
+Resource          ../High Level Keywords/SignOut-AdminConsole.txt
+
 *** Test Cases ***
 [56103]_Open log in page and keeping user's email address in field when pressing on sign out
-    [Tags]    development
+    [Setup]    Run Keywords    Use TestLink
+    ...    AND    Open AUT and Navigate to test page    ${url}
+    ...    AND    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
+    Click Sign out
+    Current screen is Sign In screen
+    Verify Sign In screen after signed out    ${s_data['${t_testID}']['email address']}
 
 [56207]_Open log in page and keeping user's email address in field (check on Stay signed in)
-    [Tags]    development
+    [Setup]    Run Keywords    Use TestLink
+    ...    AND    Open AUT and Navigate to test page    ${url}
+    ...    AND    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${True}
+    Click Sign out
+    Current screen is Sign In screen
+    Verify Sign In screen after signed out    ${s_data['${t_testID}']['email address']}

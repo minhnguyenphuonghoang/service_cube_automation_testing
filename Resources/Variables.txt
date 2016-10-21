@@ -18,3 +18,4 @@ ${alias}          Service Cube
 ${gl_timeout}     10
 ${data_set_SignIn}    ${CURDIR}/../DataSet/SignIn.xlsx
 ${data_set_ResetPassword}    ${CURDIR}/../DataSet/ResetPassword.xlsx
+${data_set_SignOut}    ${CURDIR}/../DataSet/SignOut.xlsx
