@@ -3,7 +3,7 @@
 #
 
 # Reset Password screen - before clicking on CONTINUE button
-
+ResetPassword_ServiceCubeLogo = '//a[@class="logo"]'
 ResetPassword_Title = '//a[@class="close-dialog"]/following-sibling::h3'
 ResetPassword_CloseButton = '//a[@class="close-dialog"]'
 ResetPassword_Description = '//a[@class="close-dialog"]/following-sibling::ul/li[1]/p'
