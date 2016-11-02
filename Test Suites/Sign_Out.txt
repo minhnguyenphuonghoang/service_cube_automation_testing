@@ -1,6 +1,6 @@
 *** Settings ***
 Suite Setup       Get Data From Excel File    ${data_set_SignOut}    Sign Out
-Test Teardown     Close All Browsers
+Test Teardown     Run Keywords    Report Test Status    Capture Page Screenshot    Close All Browsers
 Resource          ../High Level Keywords/SignOut-AdminConsole.txt
 
 *** Test Cases ***

@@ -2,10 +2,10 @@
 Library           ../Libraries/TestlinkAPIClient.py    ${tl_APIKey}    ${tl_test_planID}    ${tl_build_description}
 
 *** Variables ***
-${tl_APIKey}      ${EMPTY}
-${tl_test_planID}    ${EMPTY}
+${tl_APIKey}      789890fdb0fd1250af7f959dc2eeb5bb
+${tl_test_planID}    57563
 ${tl_build_description}    This is test automation running on robot framework
-${tl_is_report_to_testLink}    False    # True or False
+${tl_is_report_to_testLink}    True    # True or False
 
 *** Keywords ***
 Create New Build
@@ -32,13 +32,13 @@ TestCase Fail
     [Documentation]    Author: minh.nguyen
     ...
     ...    Description: Submit test result to testlink with the result is "fail"
-    ReportTCResult    ${test_caseID}    ${buildID}    f    ${TEST_MESSAGE}
+    ReportTCResult    ${t_testID}    ${gl_buildID}    f    ${TEST_MESSAGE}
 
 TestCase Pass
     [Documentation]    Author: minh.nguyen
     ...
     ...    Description: Submit test result to testlink with the result is "pass"
-    Report TC Result    ${test_caseID}    ${buildID}    p    ${TEST_MESSAGE}
+    Report TC Result    ${t_testID}    ${gl_buildID}    p    ${TEST_MESSAGE}
 
 TestCase Result
     [Documentation]    Author: minh.nguyen

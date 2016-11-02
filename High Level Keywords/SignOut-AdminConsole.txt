@@ -5,5 +5,5 @@ Resource          ../Resources/Variables.txt
 Verify Sign In screen after signed out
     [Arguments]    ${email_address}
     ${current_email}=    Get Value    ${SignIn_Admin_EmailAddressTextField}
-    Should Be Equal As Strings    ${current_email}    ${email_address}
+    Should Be Equal As Strings    ${current_email}    ${email_address}    Email of user hasn't been prepopulated on Email Address text field on Sign In screen
     Sign In button is disabled

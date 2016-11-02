@@ -1,7 +1,7 @@
 *** Settings ***
 Suite Setup       Get Data From Excel File    ${data_set_SignIn}    Sign In
 Test Setup        Run Keywords    Use TestLink    Open AUT and Navigate to test page
-Test Teardown     Close All Browsers
+Test Teardown     Run Keywords    Report Test Status    Capture Page Screenshot    Close All Browsers
 Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 
 *** Test Cases ***
