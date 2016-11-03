@@ -22,6 +22,9 @@ Open AUT and Navigate to test page
 Add cookies to browser
     [Arguments]    ${cookies}
     @{list_of_cookies}=    Split String    ${cookies}    ;
-    :FOR    ${a_cookie}    IN    @{list_of_cookies}
+    : FOR    ${a_cookie}    IN    @{list_of_cookies}
     \    ${cookie_name}    ${cookie_value}    Split String    ${a_cookie.strip()}    =
     \    Add Cookie    ${cookie_name}    ${cookie_value}
+
+Wait until progress bar is completed
+    Wait Until Element Is Not Visible    //div[@id="app"]/div[1]/div[1]/div[1]/div[1]    ${gl_timeout}    Progress bar still visible after ${gl_timeout} seconds

@@ -9,3 +9,8 @@ Current screen is Home Page screen
 Click Sign out
     Wait Until Page Contains Element    ${HomePage_Admin_SignoutButton}    ${gl_timeout}    Sign Out button on Home Screen couldn't be found
     Click Element    ${HomePage_Admin_SignoutButton}
+
+Click My Account
+    Wait Until Page Contains Element    ${HomePage_Admin_Myaccount}    ${gl_timeout}    My Account on Home Page couldn't be found
+    Click Element    ${HomePage_Admin_Myaccount}
+    Wait until progress bar is completed

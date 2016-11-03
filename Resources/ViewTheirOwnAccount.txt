@@ -1,0 +1,3 @@
+*** Settings ***
+Resource          Variables.txt
+Variables         ../GuiObjects/MyAccount.py

@@ -1,0 +1,22 @@
+*** Settings ***
+Suite Setup       Get Data From Excel File    ${data_set_ViewAccount}    View Account
+Test Setup        Run Keywords    Use TestLink
+...               AND    Open AUT and Navigate to test page    ${url}
+...               AND    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
+...               AND    Click My Account
+Test Teardown     Run Keywords    Report Test Status    Capture Page Screenshot    Close All Browsers
+Resource          ../High Level Keywords/ViewTheirOwnAccount.txt
+
+*** Test Cases ***
+[56077]_Check UI own account
+    [Tags]    development
+    Check UI of Users view their own account
+
+[56083]_Open change name form when pressing on change name link
+    [Tags]    development
+
+[56085]_Open change email address form when pressing on change name link
+    [Tags]    development
+
+[56087]_Open change password form when pressing on change name link
+    [Tags]    development

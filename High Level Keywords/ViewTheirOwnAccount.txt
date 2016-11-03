@@ -1,0 +1,22 @@
+*** Settings ***
+Resource          ../Resources/ViewTheirOwnAccount.txt
+
+*** Keywords ***
+Check UI of Users view their own account
+    Wait Until Page Contains Element    ${MyAccount_Title}    ${gl_timeout}    Title on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_Title}    ${s_data['${t_testID}']['title']}    Title on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_FirstNameLabel}    ${gl_timeout}    First Name label on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_FirstNameLabel}    ${s_data['${t_testID}']['first name']}    First Name label on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_FirstName}    ${gl_timeout}    First Name on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_FirstName}    ${s_data['${t_testID}']['first name value']}    First Name on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_LastNameLabel}    ${gl_timeout}    Last Name label on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_LastNameLabel}    ${s_data['${t_testID}']['last name']}    Last Name label on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_LastName}    ${gl_timeout}    Last Name on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_LastName}    ${s_data['${t_testID}']['last name value']}    Last Name on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_EmailLabel}    ${gl_timeout}    Email label on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_EmailLabel}    ${s_data['${t_testID}']['email']}    Email label on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_Email}    ${gl_timeout}    Email on My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_Email}    ${s_data['${t_testID}']['email address']}    Email on My account screen is NOT correct
+    Wait Until Page Contains Element    ${MyAccount_ChangeNameLink}    ${gl_timeout}    Change Name link on My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangePasswordLink}    ${gl_timeout}    Change Password link on My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressLink}    ${gl_timeout}    Change Email Address link on My Account screen couldn't be found

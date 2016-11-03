@@ -3,5 +3,6 @@
 #
 
 HomePage_Admin_Avatar = '//div[@class="avatar"]'
+HomePage_Admin_Myaccount = '//a[text()="My account"]'
 HomePage_Admin_Logout = '//input[@value="Logout"]'
 HomePage_Admin_SignoutButton = '//a[text()="Sign out"]'
