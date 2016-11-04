@@ -39,12 +39,6 @@ Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 [55940]_Sign in with Email has "space" in first and end
     Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
 
-[55942]_Sign in with new password after reset password
-    [Tags]    development
-
-[57279]_Sign in with old password after reset password
-    [Tags]    development
-
 [57256]_Disable "Sign In" button when missing all fields (default)
     Sign In button is disabled
     Input Email Address    ${s_data['${t_testID}']['email address']}

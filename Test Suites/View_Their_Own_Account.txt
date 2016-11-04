@@ -9,14 +9,13 @@ Resource          ../High Level Keywords/ViewTheirOwnAccount.txt
 
 *** Test Cases ***
 [56077]_Check UI own account
-    [Tags]    development
     Check UI of Users view their own account
 
 [56083]_Open change name form when pressing on change name link
-    [Tags]    development
+    Click Change Name
 
 [56085]_Open change email address form when pressing on change name link
-    [Tags]    development
+    Click Change Password
 
 [56087]_Open change password form when pressing on change name link
-    [Tags]    development
+    Click Change Email Address

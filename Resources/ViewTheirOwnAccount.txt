@@ -1,3 +1,31 @@
 *** Settings ***
 Resource          Variables.txt
 Variables         ../GuiObjects/MyAccount.py
+
+*** Keywords ***
+Current screen is Change Name Popup
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_Title}    ${gl_timeout}    Change Name popup - My Account screen couldn't be found
+    Wait Until Element Is Visible    ${MyAccount_ChangeNamePopup_Title}    ${gl_timeout}    Change Name popup - My Account screen is not visible
+
+Current screen is Change Password Popup
+    Wait Until Page Contains Element    ${MyAccount_ChangePasswordPopup_Title}    ${gl_timeout}    Change Password popup - My Account screen couldn't be found
+    Wait Until Element Is Visible    ${MyAccount_ChangePasswordPopup_Title}    ${gl_timeout}    Change Password popup - My Account screen is not visible
+
+Current screen is Change Email Address Popup
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_Title}    ${gl_timeout}    Change Email Address popup - My Account screen couldn't be found
+    Wait Until Element Is Visible    ${MyAccount_ChangeEmailAddressPopup_Title}    ${gl_timeout}    Change Email Address popup - My Account screen is not visible
+
+Click Change Name
+    Wait Until Page Contains Element    ${MyAccount_ChangeNameLink}    ${gl_timeout}    Change Name link on My Account screen couldn't be found
+    Click Element    ${MyAccount_ChangeNameLink}
+    Current screen is Change Name Popup
+
+Click Change Password
+    Wait Until Page Contains Element    ${MyAccount_ChangePasswordLink}    ${gl_timeout}    Change Password link on My Account screen couldn't be found
+    Click Element    ${MyAccount_ChangePasswordLink}
+    Current screen is Change Password Popup
+
+Click Change Email Address
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressLink}    ${gl_timeout}    Change Email Address link on My Account screen couldn't be found
+    Click Element    ${MyAccount_ChangeEmailAddressLink}
+    Current screen is Change Email Address Popup
