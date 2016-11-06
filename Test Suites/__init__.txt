@@ -1,3 +1,3 @@
 *** Settings ***
-Suite Setup       Use Existing Build
+Suite Setup       Run Keyword If    ${tl_is_report_to_testLink}==True    Use Existing Build
 Resource          ../Resources/TestLink.txt

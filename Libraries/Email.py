@@ -47,7 +47,7 @@ class Email:
             time_step = int(time_step)
         except:
             print 'time_step must be a number, set default time_step = 10 seconds'
-            time_step = 30
+            time_step = 10
         while(timeout >= time_step):            
             self.conn.recent()
             result, email_uids = self._get_unseen_emails_by_subject(subject)
@@ -62,8 +62,8 @@ class Email:
             if result==True:
                 return email_uids
         if subject == 'any':
-            assert False, "No email arrives after %d!" % expected_time
-        assert False, "No email with subject: '%s' arrives after %d!" % (subject, expected_time)
+            assert False, "No email arrives after %d seconds!" % expected_time
+        assert False, "No email with subject: '%s' arrives after %d seconds!" % (subject, expected_time)
 
     def get_all_links(self, email_uid, label='inbox'):
         '''Get all links
@@ -130,9 +130,7 @@ class Email:
         return subject[0][0]
 
     def get_body_content(self, index=-1, label='inbox'):
-        #select label
-        self.conn.list()
-        self.conn.select(label)
+        self._select_label(label)
 
         result, data = self.conn.uid('search', None, "ALL")      
         try:
@@ -231,13 +229,13 @@ class Email:
         return data2[0].split().index(data[0].split()[0])    
     
 
-if __name__ == '__main__':
-    email_test = Email()
-    email_test.connect_to_email('automationguru3@gmail.com','AutomationGuru')
-    uid = email_test.wait_for_email("any",10,3)
-    print uid
-    # email_test.delete_an_email(uid)
-    email_test.close_connection()
+# if __name__ == '__main__':
+#     email_test = Email()
+#     email_test.connect_to_email('automationguru3@gmail.com','AutomationGuru')
+#     uid = email_test.wait_for_email("any",10,3)
+#     print uid
+#     # email_test.delete_an_email(uid)
+#     email_test.close_connection()
 
 
 
