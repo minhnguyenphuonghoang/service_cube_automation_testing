@@ -32,7 +32,7 @@ class Email:
         self.conn.close()
         self.conn.logout()
 
-    def wait_for_email(self, subject='any',timeout=120, time_step=10):
+    def wait_for_email(self, subject='any', timeout=120, time_step=10):
         '''Wait for new mail by
         - If subject='any', any new email will be accepted
         - If subject='something', it'll wait until email which has subject is 'something' arrives
@@ -151,6 +151,27 @@ class Email:
                 continue      
         return save_string
 
+
+    def get_body_content_udid(self, email_uid, label='inbox'):
+        self._select_label(label)
+        try:
+            result, email_data = self.conn.uid('fetch', email_uid, '(RFC822)')
+        except:
+            assert False, "No email with id=%d has found!" % email_uid
+
+        raw_email = email_data[0][1]
+        
+        raw_email_string = raw_email.decode('utf-8')
+        email_message = email.message_from_string(raw_email_string)
+        for part in email_message.walk():
+            if part.get_content_type() == "text/html":
+                body = part.get_payload(decode=True)
+                save_string = ""
+                save_string+=body.decode('utf-8')
+            else:
+                continue      
+        return save_string
+
     def delete_all_emails(self, label='inbox'):
         self._select_label(label)
 
@@ -209,7 +230,7 @@ class Email:
         for email_uid in email_ids:
             result, email_data = self.conn.uid('fetch', email_uid, '(RFC822)')
             curr_subject = decode_header(email.message_from_string(email_data[0][1].decode('utf-8'))['Subject'])
-            if curr_subject[0][0] == subject:
+            if curr_subject[0][0].decode('utf-8') == subject.decode('utf-8'):
                 return True, email_uid
         return False, None
             
