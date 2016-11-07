@@ -5,5 +5,15 @@ Resource          Variables.txt
 Delete all emails before executing test script
     [Arguments]    ${email_address}=${s_data['${t_test_caseID}']['email address']}    ${password}=${s_data['${t_test_caseID}']['password']}
     Connect To Email    ${email_address}    ${password}
-    Email.Delete All Email
-    Email.Close Connection
+    Delete All Emails
+    Close Connection
+
+Check Forgot Password Email Template
+    [Arguments]    ${email_address}    ${password}    ${name}
+    Connect To Email    ${email_address}    ${password}
+    ${email_uid}=    Wait For Email    Reset your password for Service Cube Admin console
+    Email.Check Email Content    ${email_uid}    ${name},    You recently requested to reset your password for Service Cube Admin console. To reset your password, follow the link below.    Reset Password    Link to reset password:    If you didn't make this request, please ignore this email.
+    ...    The Service Cube Team
+    ${links}=    Email.Get All Links    ${email_uid}
+    [Teardown]    Close Connection
+    [Return]    ${links}

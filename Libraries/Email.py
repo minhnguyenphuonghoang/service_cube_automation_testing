@@ -129,37 +129,13 @@ class Email:
         subject = decode_header(email_message['Subject'])        
         return subject[0][0]
 
-    def get_body_content(self, index=-1, label='inbox'):
+    def get_body_content(self, email_uid, label='inbox'):
         self._select_label(label)
-
-        result, data = self.conn.uid('search', None, "ALL")      
-        try:
-            email_uid = data[0].split()[index]
-        except IndexError:
-            return None 
         result, email_data = self.conn.uid('fetch', email_uid, '(RFC822)')
-        raw_email = email_data[0][1]
-        
-        raw_email_string = raw_email.decode('utf-8')
-        email_message = email.message_from_string(raw_email_string)
-        for part in email_message.walk():
-            if part.get_content_type() == "text/html":
-                body = part.get_payload(decode=True)
-                save_string = ""
-                save_string+=body.decode('utf-8')
-            else:
-                continue      
-        return save_string
-
-
-    def get_body_content_udid(self, email_uid, label='inbox'):
-        self._select_label(label)
         try:
-            result, email_data = self.conn.uid('fetch', email_uid, '(RFC822)')
+            raw_email = email_data[0][1]    
         except:
-            assert False, "No email with id=%d has found!" % email_uid
-
-        raw_email = email_data[0][1]
+            assert False, "No email with id=%s has found!" % email_uid
         
         raw_email_string = raw_email.decode('utf-8')
         email_message = email.message_from_string(raw_email_string)
@@ -187,16 +163,11 @@ class Email:
         self.conn.uid('STORE', email_uid, '+FLAGS', r'\Deleted')
 
 
-    def check_email_content(self, email_subject, *message):
+    def check_email_content(self, email_uid, *message):
         from bs4 import BeautifulSoup 
         import re
-
-        try:
-            index = self._get_email_index_by_subject(email_subject)
-        except:
-            assert False, "There is no email which has subject \"%s\"" % email_subject
-        
-        actual_body = self.get_body_content(index, "inbox")
+                
+        actual_body = self.get_body_content(email_uid, "inbox")
         
         html_parse = BeautifulSoup(actual_body, "html.parser")
         actual_body = html_parse.get_text()
