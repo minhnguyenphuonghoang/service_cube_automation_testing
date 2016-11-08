@@ -14,3 +14,4 @@ Click My Account
     Wait Until Page Contains Element    ${HomePage_Admin_Myaccount}    ${gl_timeout}    My Account on Home Page couldn't be found
     Click Element    ${HomePage_Admin_Myaccount}
     Wait until progress bar is completed
+    Current screen is My Account screen

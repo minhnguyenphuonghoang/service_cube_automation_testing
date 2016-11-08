@@ -29,3 +29,9 @@ Click Change Email Address
     Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressLink}    ${gl_timeout}    Change Email Address link on My Account screen couldn't be found
     Click Element    ${MyAccount_ChangeEmailAddressLink}
     Current screen is Change Email Address Popup
+
+Current screen is My Account screen
+    Wait Until Page Contains    My account    ${gl_timeout}
+    Wait Until Page Contains Element    ${MyAccount_ChangeNameLink}    ${gl_timeout}    Change Name link on My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangePasswordLink}    ${gl_timeout}    Change Password link on My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressLink}    ${gl_timeout}    Change Email Address link on My Account screen couldn't be found
