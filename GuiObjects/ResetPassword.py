@@ -22,10 +22,13 @@ ResetPassword_SetPassword_Title = '//form[contains(@class,"dialog")]/h3'
 ResetPassword_SetPassword_PasswordTextField = '//input[@id="newPass"]'
 ResetPassword_SetPassword_ConfirmPasswordTextField = '//input[@id="confirmPass"]'
 ResetPassword_SetPassword_ContinueButton = '//button[@id="continueBtn"]'
-ResetPassword_SetPassword_PasswordLengthError = '//span[@id="passLengthErr"]'
-ResetPassword_SetPassword_ConfirmPasswordLengthError = '//span[@id="passLengthErrConf"]'
-ResetPassword_SetPassword_ConfirmPasswordNotMatchError = '//span[@id="matchErr"]'
+ResetPassword_SetPassword_ErrorMessage = '//form[contains(@class,"newPassForm")]//span[not(contains(@class,"hide"))]'
+# ResetPassword_SetPassword_PasswordLengthError = '//span[@id="passLengthErr"]'
+# ResetPassword_SetPassword_ConfirmPasswordLengthError = '//span[@id="passLengthErrConf"]'
+# ResetPassword_SetPassword_ConfirmPasswordNotMatchError = '//span[@id="matchErr"]'
 
 
-
+# Reset Password - Invalid link screen
+ResetPassword_InvalidLink_Description = '//div[@class="dialog"]/p'
+ResetPassword_InvalidLink_CloseButton = '//div[@class="dialog"]/button'
 
