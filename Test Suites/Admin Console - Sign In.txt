@@ -18,7 +18,7 @@ Resource          ../High Level Keywords/SignIn-AdminConsole.txt
     Reload Page
     Current screen is Home Page screen
 
-[55916]_Go to Forgot password page after clicking on Forgot password link
+[58805]_Go to Forgot password page after clicking on Forgot password link
     Click forgot password
     Current screen is Reset Password screen
 
@@ -50,7 +50,7 @@ Resource          ../High Level Keywords/SignIn-AdminConsole.txt
 [55970]_Sign in with a wrong password and show message
     Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}    ${False}
 
-[55974]_Sign in with wrong email and show message
+[58809]_Sign in with wrong email and show message
     Sign In unsuccessful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}    ${s_data['${t_testID}']['error message']}    ${False}
 
 [55976]_Sign in with non existent email
