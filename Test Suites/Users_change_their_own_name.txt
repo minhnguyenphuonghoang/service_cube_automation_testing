@@ -1,1 +1,52 @@
+*** Settings ***
+Suite Setup       Get Data From Excel File    ${data_set_ChangeName}    Change Name
+Test Setup        Run Keywords    Use TestLink
+...               AND    Open AUT and Navigate to test page    ${url}
+...               AND    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
+...               AND    Click My Account
+...               AND    Click Change Name
+Test Teardown     Run Keywords    Report Test Status    Capture Page Screenshot    Close All Browsers
+Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
+
 *** Test Cases ***
+[56058]_Check max length for first name and last name fields (40 chars)
+    Check max length for first name and last name fields
+
+[56150]_Open and check UI dialog change name after clicking on change name link
+    Check UI of Change Name popup
+
+[56178]_Keeping current user name on first, last name on fields for change name dialog
+    Check user's name displays as a default value on fields
+
+[56180]_Back to My account page when clicking on cancel button
+    Click Cancel
+
+[56209]_Changing name with length fields ≤ 40 characters
+    [Tags]    development
+
+[56211]_Changing name with emotion/symbol icon
+    [Tags]    development
+
+[56213]_Changing name with Unicode name
+    [Tags]    development
+
+[56227]_Changing name with value does not change
+    [Tags]    development
+
+[56306]_Changing name while email changing status is pending
+    [Tags]    development
+
+[56229]_Changing name with old first name and old last name
+    [Tags]    development
+
+[56215]_Changing name with empty fields
+    [Tags]    development
+
+[56217]_Changing name with empty first name or empty last name
+    [Tags]    development
+
+[56996]_Close change name dialog
+    [Tags]    development
+
+[57004]_Check input only "space" chars
+    [Tags]    development

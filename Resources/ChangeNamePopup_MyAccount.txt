@@ -1,0 +1,18 @@
+*** Settings ***
+Resource          Variables.txt
+
+*** Keywords ***
+Input First Name
+    [Arguments]    ${first_name}
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}    ${gl_timeout}    First name text field on Change Name popup - My Account couldn't be found
+    Input Text    ${MyAccount_ChangeNamePopup_FirstNameTextField}    ${first_name}
+
+Input Last Name
+    [Arguments]    ${last_name}
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_LastNameTextField}    ${gl_timeout}    Last name text field on Change Name popup - My Account couldn't be found
+    Input Text    ${MyAccount_ChangeNamePopup_LastNameTextField}    ${last_name}
+
+Click Cancel
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_CancelButton}    ${gl_timeout}    CANCEL button of Change Name popup - My Account screen couldn't be found
+    Click Element    ${MyAccount_ChangeNamePopup_CancelButton}
+    Current screen is My Account screen

@@ -24,12 +24,12 @@ MyAccount_ChangeEmailAddressLink = '//a[text()="Change email address"]'
 
 # Change Name popup
 MyAccount_ChangeNamePopup_Title = '//h3[text()="Change your name"]'
-MyAccount_ChangeNamePopup_FirstNameLabel = ''
-MyAccount_ChangeNamePopup_FirstNameTextField = ''
-MyAccount_ChangeNamePopup_LastNameLabel = ''
-MyAccount_ChangeNamePopup_LastNameTextField = ''
-MyAccount_ChangeNamePopup_CancelButton = ''
-MyAccount_ChangeNamePopup_ContinueButton = ''
+MyAccount_ChangeNamePopup_FirstNameLabel = '//button[text()="SAVE"]/../../li[1]/div[1]/label'
+MyAccount_ChangeNamePopup_FirstNameTextField = '//button[text()="SAVE"]/../../li[1]/div[1]/label/input'
+MyAccount_ChangeNamePopup_LastNameLabel = '//button[text()="SAVE"]/../../li[2]/div[1]/label'
+MyAccount_ChangeNamePopup_LastNameTextField = '//button[text()="SAVE"]/../../li[2]/div[1]/label/input'
+MyAccount_ChangeNamePopup_CancelButton = '//button[text()="Cancel"]'
+MyAccount_ChangeNamePopup_SaveButton = '//button[text()="SAVE"]'
 
 # Change Password popup
 MyAccount_ChangePasswordPopup_Title = '//h3[text()="Change your password"]'

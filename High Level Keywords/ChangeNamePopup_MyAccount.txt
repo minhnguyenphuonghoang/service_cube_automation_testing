@@ -1,0 +1,33 @@
+*** Settings ***
+Resource          ../Resources/ChangeNamePopup_MyAccount.txt
+
+*** Keywords ***
+Check UI of Change Name popup
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_Title}    ${gl_timeout}    Title of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_FirstNameLabel}    ${gl_timeout}    First name label of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}    ${gl_timeout}    First name text field of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_LastNameLabel}    ${gl_timeout}    Last name label of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_LastNameTextField}    ${gl_timeout}    Last name text field of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_CancelButton}    ${gl_timeout}    CANCEL button of Change Name popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_SaveButton}    ${gl_timeout}    SAVE button of Change Name popup - My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_ChangeNamePopup_Title}    ${s_data['${t_testID}']['title']}    Title of Change Name popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeNamePopup_FirstNameLabel}    ${s_data['${t_testID}']['first name']}    First name label of Change Name popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeNamePopup_LastNameLabel}    ${s_data['${t_testID}']['last name']}    Last name label of Change Name popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeNamePopup_CancelButton}    ${s_data['${t_testID}']['cancel button']}    CANCEL button of Change Name popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeNamePopup_SaveButton}    ${s_data['${t_testID}']['save button']}    SAVE button of Change Name popup - My Account screen is incorrect
+
+Check user's name displays as a default value on fields
+    ${first_name}=    Get Element Attribute    ${MyAccount_ChangeNamePopup_FirstNameTextField}@value
+    ${last_name}=    Get Element Attribute    ${MyAccount_ChangeNamePopup_LastNameTextField}@value
+    Should Be Equal As Strings    ${first_name}    ${s_data['${t_testID}']['first name']}    First name of user on Change Name popup is incorrect
+    Should Be Equal As Strings    ${last_name}    ${s_data['${t_testID}']['last name']}    Last name of user on Change Name popup is incorrect
+
+Check max length for first name and last name fields
+    Input First Name    12345678901234567890123456789012345678901234567890
+    Input Last Name    12345678901234567890123456789012345678901234567890
+    ${first_name}=    Get Element Attribute    ${MyAccount_ChangeNamePopup_FirstNameTextField}@value
+    ${last_name}=    Get Element Attribute    ${MyAccount_ChangeNamePopup_LastNameTextField}@value
+    ${first_name_length}=    Get Length    ${first_name}
+    ${last_name_length}=    Get Length    ${last_name}
+    Should Be Equal As Numbers    ${first_name_length}    40    First name is allowed to be input no more than 40 characters but it is not
+    Should Be Equal As Numbers    ${last_name_length}    40    Last name is allowed to be input no more than 40 characters but it is not
