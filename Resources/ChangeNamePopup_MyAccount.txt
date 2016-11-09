@@ -16,3 +16,11 @@ Click Cancel
     Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_CancelButton}    ${gl_timeout}    CANCEL button of Change Name popup - My Account screen couldn't be found
     Click Element    ${MyAccount_ChangeNamePopup_CancelButton}
     Current screen is My Account screen
+
+Click Save
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_SaveButton}    ${gl_timeout}    SAVE button of Change Name popup - My Account screen couldn't be found
+    Click Element    ${MyAccount_ChangeNamePopup_SaveButton}
+
+Change Name popup is disappeared
+    Wait Until Element Is Not Visible    ${MyAccount_ChangeNamePopup_CancelButton}    ${gl_timeout}    Change Name popup should be disappeared but it is not
+    Wait Until Element Is Not Visible    ${MyAccount_ChangeNamePopup_SaveButton}    ${gl_timeout}    Change Name popup should be disappeared but it is not

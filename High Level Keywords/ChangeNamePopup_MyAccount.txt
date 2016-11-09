@@ -31,3 +31,9 @@ Check max length for first name and last name fields
     ${last_name_length}=    Get Length    ${last_name}
     Should Be Equal As Numbers    ${first_name_length}    40    First name is allowed to be input no more than 40 characters but it is not
     Should Be Equal As Numbers    ${last_name_length}    40    Last name is allowed to be input no more than 40 characters but it is not
+
+Verify name after changed
+    [Arguments]    ${first_name}=${s_data['${t_testID}']['first name']}    ${last_name}=${s_data['${t_testID}']['last name']}
+    Element Text Should Be    ${MyAccount_FirstName}    ${first_name}    First name is displayed incorrectly after changed
+    Element Text Should Be    ${MyAccount_LastName}    ${last_name}    Last name is displayed incorrectly after changed
+    Element Text Should Be    ${HomePage_Admin_Fullname}    ${first_name}${SPACE}${last_name}    Full name is displayed incorrectly after changed
