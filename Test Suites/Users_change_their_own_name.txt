@@ -34,7 +34,6 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
     Verify name after changed
     Click Sign out
     Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
-    Wait until progress bar is completed
     Click My Account
     Verify name after changed
 

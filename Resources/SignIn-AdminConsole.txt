@@ -33,6 +33,7 @@ Sign In successful
     Sign In    ${email_address}    ${password}    ${check_stay_signed_in}
     Wait Until Page Does Not Contain Element    ${SignIn_Admin_EmailAddressTextField}    ${gl_timeout}    Sign in unsuccessful. Sign In text field still exist
     Current screen is Home Page screen
+    Wait until progress bar is completed
 
 Click forgot password
     Wait Until Page Contains Element    ${SignIn_Admin_ForgotPasswordLink}    ${gl_timeout}    Fogot Password link couldn't be found on Sign In screen
