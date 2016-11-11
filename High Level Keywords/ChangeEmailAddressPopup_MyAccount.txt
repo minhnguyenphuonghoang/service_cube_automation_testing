@@ -1,0 +1,14 @@
+*** Settings ***
+Resource          ../Resources/ChangeEmailAddressPopup_MyAccount.txt
+
+*** Keywords ***
+Check UI of Change Email Address popup
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_Title}    ${gl_timeout}    Title of Change Email Address popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_EmailAddressLabel}    ${gl_timeout}    Email Address label of Change Email Address popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_EmailAddressTextField}    ${gl_timeout}    Email Address text field of Change Email Address popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_CancelButton}    ${gl_timeout}    CANCEL button of Change Email Address popup - My Account screen couldn't be found
+    Wait Until Page Contains Element    ${MyAccount_ChangeEmailAddressPopup_ContinueButton}    ${gl_timeout}    CONTINUE button of Change Email Address popup - My Account screen couldn't be found
+    Element Text Should Be    ${MyAccount_ChangeEmailAddressPopup_Title}    ${s_data['${t_testID}']['title']}    Title of Change Email Address popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeEmailAddressPopup_EmailAddressLabel}    ${s_data['${t_testID}']['new email address label']}    First name label of Change Email Address popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeEmailAddressPopup_CancelButton}    ${s_data['${t_testID}']['cancel button']}    CANCEL button of Change Email Address popup - My Account screen is incorrect
+    Element Text Should Be    ${MyAccount_ChangeEmailAddressPopup_ContinueButton}    ${s_data['${t_testID}']['continue button']}    CONTINUE button of Change Email Address popup - My Account screen is incorrect

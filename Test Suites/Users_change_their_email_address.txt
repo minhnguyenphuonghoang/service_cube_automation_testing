@@ -1,0 +1,96 @@
+*** Settings ***
+Suite Setup       Get Data From Excel File    ${data_set_ChangeEmailAddress}    Change Email Address
+Test Setup        Run Keywords    Use TestLink
+...               AND    Open AUT and Navigate to test page    ${url}
+...               AND    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
+...               AND    Click My Account
+...               AND    Click Change Email Address
+Test Teardown     Run Keywords    Report Test Status    Capture Page Screenshot    Close All Browsers
+Resource          ../High Level Keywords/ChangeEmailAddressPopup_MyAccount.txt
+
+*** Test Cases ***
+[55906]_Check UI and Grammar of Change email popup
+    Check UI of Change Email Address popup
+
+[55908]_Own email address display default and is highlighted in the edit-state
+    [Tags]    development
+
+[56044]_Check confirm popup after saving successful
+    [Tags]    development
+
+[56186]_Check email template
+    [Tags]    development
+
+[57019]_Log out on other devices after change email successfully
+    [Tags]    development
+
+[55994]_Changing email with a valid email
+    [Tags]    development
+
+[56012]_Changing email with an email which has previously been invited
+    [Tags]    development
+
+[56184]_Changing email with an email which has previously been discarded change
+    [Tags]    development
+
+[58543]_Changing email which contains spaces at the beginning and at the end
+    [Tags]    development
+
+[56018]_Changing email with unverified email which used to change email but doesn't yet verify
+    [Tags]    development
+
+[56232]_Changing email with unverified email which used to invite but doesn't yet verify
+    [Tags]    development
+
+[57039]_Changing email with an email which has previously been expired
+    [Tags]    development
+
+[56048]_Changing email with existed email
+    [Tags]    development
+
+[56050]_Changing email with empty email
+    [Tags]    development
+
+[56052]_Changing email with incorrect format email
+    [Tags]    development
+
+[56054]_Changing email with email has length greater than limit
+    [Tags]    development
+
+[56034]_Reject change email when clicking on CANCEL button
+    [Tags]    development
+
+[56174]_Changing email with unicode email
+    [Tags]    development
+
+[56304]_Changing email in special case
+    [Tags]    development
+
+[57035]_Changing email with the current email
+    [Tags]    development
+
+[56300]_Click on email verification link which has been expired
+    [Tags]    development
+
+[56302]_Click on email verification link which has been discarded change
+    [Tags]    development
+
+[57006]_Click on email verification link after verified successfully
+    [Tags]    development
+
+[56158]_Remove new email address when clicking on [Discard this change] link
+    [Tags]    development
+
+[57009]_Remove new email address when clicking on/copy and paste [Discard this change] link from email
+    [Tags]    development
+
+[57011]_Click on Discard Change Email
+    [Tags]    development
+    link from email again after confirm email successfully
+
+[57013]_Click on Discard Change Email
+    [Tags]    development
+    link from email again after discard change    successfully
+
+[58525]_Click on Discard Change Email link from email after confirm email has been expired
+    [Tags]    development

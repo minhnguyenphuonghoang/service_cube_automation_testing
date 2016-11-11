@@ -33,13 +33,25 @@ MyAccount_ChangeNamePopup_SaveButton = '//button[text()="SAVE"]'
 
 # Change Password popup
 MyAccount_ChangePasswordPopup_Title = '//h3[text()="Change your password"]'
+MyAccount_ChangePasswordPopup_CurrentPasswordLabel = '//button[text()="Cancel"]/../../li[1]/div/label'
+MyAccount_ChangePasswordPopup_CurrentPasswordTextField = '//button[text()="Cancel"]/../../li[1]/div/label/input'
+MyAccount_ChangePasswordPopup_NewPasswordLabel = '//button[text()="Cancel"]/../../li[2]/div/label'
+MyAccount_ChangePasswordPopup_NewPasswordTextField = '//button[text()="Cancel"]/../../li[2]/div/label/input'
+MyAccount_ChangePasswordPopup_ConfirmNewPasswordLabel = '//button[text()="Cancel"]/../../li[3]/div/label'
+MyAccount_ChangePasswordPopup_ConfirmNewPasswordTextField = '//button[text()="Cancel"]/../../li[1]/div/label/input'
+MyAccount_ChangePasswordPopup_CancelButton = '//button[text()="Cancel"]'
+MyAccount_ChangePasswordPopup_SaveButton = '//button[text()="Save"]'
+
+
+
 
 
 # Change Email Address popup
 MyAccount_ChangeEmailAddressPopup_Title = '//h3[text()="Change your email address"]'
-
-
-
+MyAccount_ChangeEmailAddressPopup_EmailAddressLabel = '//button[text()="Cancel"]/../../li[1]/div/label'
+MyAccount_ChangeEmailAddressPopup_EmailAddressTextField = '//button[text()="Cancel"]/../../li[1]/div/label/input'
+MyAccount_ChangeEmailAddressPopup_CancelButton = '//button[text()="Cancel"]'
+MyAccount_ChangeEmailAddressPopup_ContinueButton = '//button[text()="Continue"]'
 
 
 

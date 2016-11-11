@@ -11,6 +11,8 @@ Resource          HomePage-AdminConsole.txt
 Resource          ResetPassword.txt
 Resource          ViewTheirOwnAccount.txt
 Resource          ChangeNamePopup_MyAccount.txt
+Resource          ChangePasswordPopup_MyAccount.txt
+Resource          ChangeEmailAddressPopup_MyAccount.txt
 
 *** Variables ***
 ${url}            http://52.88.126.240:8080
@@ -23,3 +25,5 @@ ${data_set_ResetPassword}    ${CURDIR}/../DataSet/ResetPassword.xlsx
 ${data_set_SignOut}    ${CURDIR}/../DataSet/SignOut.xlsx
 ${data_set_ViewAccount}    ${CURDIR}/../DataSet/ViewTheirOwnAccount.xlsx
 ${data_set_ChangeName}    ${CURDIR}/../DataSet/ChangeName.xlsx
+${data_set_ChangePassword}    ${CURDIR}/../DataSet/ChangePassword.xlsx
+${data_set_ChangeEmailAddress}    ${CURDIR}/../DataSet/ChangeEmailAddress.xlsx

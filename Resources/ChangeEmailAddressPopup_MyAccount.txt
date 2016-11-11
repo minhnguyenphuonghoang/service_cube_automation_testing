@@ -1,0 +1,2 @@
+*** Settings ***
+Resource          Variables.txt
