@@ -37,3 +37,22 @@ Verify name after changed
     Wait Until Keyword Succeeds    ${gl_timeout}    1    Element Text Should Be    ${MyAccount_FirstName}    ${first_name}    First name is displayed incorrectly after changed
     Wait Until Keyword Succeeds    ${gl_timeout}    1    Element Text Should Be    ${MyAccount_LastName}    ${last_name}    Last name is displayed incorrectly after changed
     Wait Until Keyword Succeeds    ${gl_timeout}    1    Element Text Should Be    ${HomePage_Admin_Fullname}    ${first_name}${SPACE}${last_name}    Full name is displayed incorrectly after changed
+
+Change Name successful
+    Change Name    ${s_data['${t_testID}']['first name']}    ${s_data['${t_testID}']['last name']}
+    Change Name popup is disappeared
+    Current screen is My Account screen
+    Wait Until Page Contains Element    ${MyAccount_Notification}    ${gl_timeout}    Change name notification couldn't be found after changed name
+    ${number_of_notifications}=    Get Matching Xpath Count    ${MyAccount_Notification}
+    Should Be Equal As Numbers    ${number_of_notifications}    1    Change name notification is duplicated
+    Element Text Should Be    ${MyAccount_Notification}    Name has been changed    Change name notification is displayed incorrectly
+    Wait Until Element Is Not Visible    ${MyAccount_Notification}    5s    Change name notification didn't disappear after 5 seconds
+    Verify name after changed
+    Click Sign out
+    Sign In successful    ${s_data['${t_testID}']['email address']}    ${s_data['${t_testID}']['password']}
+    Click My Account
+    Verify name after changed
+
+Change Name unsuccessful
+    [Arguments]    ${first_name}    ${last_name}
+    Change Name    ${first_name}    ${last_name}

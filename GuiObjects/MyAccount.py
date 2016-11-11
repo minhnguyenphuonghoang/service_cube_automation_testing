@@ -37,3 +37,12 @@ MyAccount_ChangePasswordPopup_Title = '//h3[text()="Change your password"]'
 
 # Change Email Address popup
 MyAccount_ChangeEmailAddressPopup_Title = '//h3[text()="Change your email address"]'
+
+
+
+
+
+
+# notification
+MyAccount_Notification = '//div[@class="notifications-wrapper"]/div/div/div'
+

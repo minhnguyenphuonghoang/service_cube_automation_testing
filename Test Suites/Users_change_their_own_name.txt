@@ -20,12 +20,15 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
 
 [56209]_Changing name with length fields ≤ 40 characters
     [Tags]    development
+    Change Name successful
 
 [56211]_Changing name with emotion/symbol icon
     [Tags]    development
+    Change Name successful
 
 [56213]_Changing name with Unicode name
     [Tags]    development
+    Change Name successful
 
 [56227]_Changing name with value does not change
     Click Save

@@ -24,3 +24,9 @@ Click Save
 Change Name popup is disappeared
     Wait Until Element Is Not Visible    ${MyAccount_ChangeNamePopup_CancelButton}    ${gl_timeout}    Change Name popup should be disappeared but it is not
     Wait Until Element Is Not Visible    ${MyAccount_ChangeNamePopup_SaveButton}    ${gl_timeout}    Change Name popup should be disappeared but it is not
+
+Change Name
+    [Arguments]    ${first_name}    ${last_name}
+    Input First Name    ${first_name}
+    Input Last Name    ${last_name}
+    Click Save
