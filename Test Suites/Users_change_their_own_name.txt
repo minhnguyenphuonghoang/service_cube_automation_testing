@@ -45,12 +45,29 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
 
 [56215]_Changing name with empty fields
     [Tags]    development
+    Save button is enabled
+    Clear First Name
+    Save button is disabled
+    Clear Last Name
+    Save button is disabled
+    Input First Name    this is example first name
+    Save button is disabled
 
 [56217]_Changing name with empty first name or empty last name
     [Tags]    development
+    Save button is enabled
+    Clear First Name
+    Save button is disabled
+    Clear Last Name
+    Save button is disabled
+    Input First Name    this is example first name
+    Save button is disabled
 
 [56996]_Close change name dialog
     Click Cancel
 
 [57004]_Check input only "space" chars
     [Tags]    development
+    Input First Name    ${SPACE}
+    Input Last Name    ${SPACE}${SPACE}${SPACE}${SPACE}
+    Click Save

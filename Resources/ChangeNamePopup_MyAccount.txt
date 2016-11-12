@@ -30,3 +30,19 @@ Change Name
     Input First Name    ${first_name}
     Input Last Name    ${last_name}
     Click Save
+
+Save button is disabled
+    Wait Until Keyword Succeeds    ${gl_timeout}    1    Element Should Be Disabled    ${MyAccount_ChangeNamePopup_SaveButton}
+
+Save button is enabled
+    Wait Until Keyword Succeeds    ${gl_timeout}    1    Element Should Be Enabled    ${MyAccount_ChangeNamePopup_SaveButton}
+
+Clear First Name
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}    ${gl_timeout}    First name text field on Change Name popup - My Account couldn't be found
+    Clear Element Text    ${MyAccount_ChangeNamePopup_FirstNameTextField}
+    Click Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}
+
+Clear Last Name
+    Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_LastNameTextField}    ${gl_timeout}    Last name text field on Change Name popup - My Account couldn't be found
+    Clear Element Text    ${MyAccount_ChangeNamePopup_LastNameTextField}
+    Click Element    ${MyAccount_ChangeNamePopup_LastNameTextField}

@@ -21,9 +21,6 @@ Resource          ../High Level Keywords/ChangeEmailAddressPopup_MyAccount.txt
 [56186]_Check email template
     [Tags]    development
 
-[57019]_Log out on other devices after change email successfully
-    [Tags]    development
-
 [55994]_Changing email with a valid email
     [Tags]    development
 
