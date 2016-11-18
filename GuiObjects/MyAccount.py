@@ -30,6 +30,8 @@ MyAccount_ChangeNamePopup_LastNameLabel = '//button[text()="SAVE"]/../../li[2]/d
 MyAccount_ChangeNamePopup_LastNameTextField = '//button[text()="SAVE"]/../../li[2]/div[1]/label/input'
 MyAccount_ChangeNamePopup_CancelButton = '//button[text()="Cancel"]'
 MyAccount_ChangeNamePopup_SaveButton = '//button[text()="SAVE"]'
+MyAccount_ChangeNamePopup_ErrorMessageFirstName = '//button[text()="SAVE"]/../../li[1]/div[1]/span'
+MyAccount_ChangeNamePopup_ErrorMessageLastName = '//button[text()="SAVE"]/../../li[2]/div[1]/span'
 
 # Change Password popup
 MyAccount_ChangePasswordPopup_Title = '//h3[text()="Change your password"]'

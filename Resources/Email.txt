@@ -9,11 +9,11 @@ Delete all emails before executing test script
     Close Connection
 
 Check Forgot Password Email Template
-    [Arguments]    ${email_address}    ${password}    ${name}
+    [Arguments]    ${email_address}    ${password}    ${name}=${EMPTY}    ${ignore_verify_content}=False
     Connect To Email    ${email_address}    ${password}
     ${email_uid}=    Wait For Email    Reset your password for Service Cube Admin console
-    Email.Check Email Content    ${email_uid}    ${name},    You recently requested to reset your password for Service Cube Admin console. To reset your password, follow the link below.    Reset Password    Link to reset password:    If you didn't make this request, please ignore this email.
-    ...    The Service Cube Team
+    Run Keyword If    ${ignore_verify_content}==False    Email.Check Email Content    ${email_uid}    ${name},    You recently requested to reset your password for Service Cube Admin console. To reset your password, follow the link below.    Reset Password
+    ...    Link to reset password:    If you didn't make this request, please ignore this email.    The Service Cube Team
     ${links}=    Email.Get All Links    ${email_uid}
     [Teardown]    Close Connection
     [Return]    ${links}

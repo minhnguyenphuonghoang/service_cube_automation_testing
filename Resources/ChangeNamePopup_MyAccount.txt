@@ -39,10 +39,14 @@ Save button is enabled
 
 Clear First Name
     Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}    ${gl_timeout}    First name text field on Change Name popup - My Account couldn't be found
-    Clear Element Text    ${MyAccount_ChangeNamePopup_FirstNameTextField}
-    Click Element    ${MyAccount_ChangeNamePopup_FirstNameTextField}
+    ${first_name}=    Get Value    ${MyAccount_ChangeNamePopup_FirstNameTextField}
+    ${length}=    Get Length    ${first_name}
+    :FOR    ${index}    IN RANGE    ${length}
+    \    Selenium2Library.Press Key    ${MyAccount_ChangeNamePopup_FirstNameTextField}    \\8
 
 Clear Last Name
     Wait Until Page Contains Element    ${MyAccount_ChangeNamePopup_LastNameTextField}    ${gl_timeout}    Last name text field on Change Name popup - My Account couldn't be found
-    Clear Element Text    ${MyAccount_ChangeNamePopup_LastNameTextField}
-    Click Element    ${MyAccount_ChangeNamePopup_LastNameTextField}
+    ${last_name}=    Get Value    ${MyAccount_ChangeNamePopup_LastNameTextField}
+    ${length}=    Get Length    ${last_name}
+    :FOR    ${index}    IN RANGE    ${length}
+    \    Selenium2Library.Press Key    ${MyAccount_ChangeNamePopup_LastNameTextField}    \\8

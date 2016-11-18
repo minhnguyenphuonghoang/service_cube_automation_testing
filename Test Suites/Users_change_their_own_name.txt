@@ -19,15 +19,12 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
     Check user's name displays as a default value on fields
 
 [56209]_Changing name with length fields ≤ 40 characters
-    [Tags]    development
     Change Name successful
 
 [56211]_Changing name with emotion/symbol icon
-    [Tags]    development
     Change Name successful
 
 [56213]_Changing name with Unicode name
-    [Tags]    development
     Change Name successful
 
 [56227]_Changing name with value does not change
@@ -41,10 +38,9 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
     Verify name after changed
 
 [56229]_Changing name with old first name and old last name
-    [Tags]    development
+    Can change old name
 
 [56215]_Changing name with empty fields
-    [Tags]    development
     Save button is enabled
     Clear First Name
     Save button is disabled
@@ -54,7 +50,6 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
     Save button is disabled
 
 [56217]_Changing name with empty first name or empty last name
-    [Tags]    development
     Save button is enabled
     Clear First Name
     Save button is disabled
@@ -67,7 +62,7 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
     Click Cancel
 
 [57004]_Check input only "space" chars
-    [Tags]    development
     Input First Name    ${SPACE}
     Input Last Name    ${SPACE}${SPACE}${SPACE}${SPACE}
     Click Save
+    Verify error messages
