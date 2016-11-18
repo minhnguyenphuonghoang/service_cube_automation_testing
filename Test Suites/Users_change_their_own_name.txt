@@ -15,7 +15,7 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
 [56150]_Open and check UI dialog change name after clicking on change name link
     Check UI of Change Name popup
 
-[58814]_Keeping current user name on first, last name on fields for change name dialog
+[59619]_Keeping current user name on first, last name on fields for change name dialog
     Check user's name displays as a default value on fields
 
 [56209]_Changing name with length fields ≤ 40 characters
@@ -40,16 +40,7 @@ Resource          ../High Level Keywords/ChangeNamePopup_MyAccount.txt
 [56229]_Changing name with old first name and old last name
     Can change old name
 
-[56215]_Changing name with empty fields
-    Save button is enabled
-    Clear First Name
-    Save button is disabled
-    Clear Last Name
-    Save button is disabled
-    Input First Name    this is example first name
-    Save button is disabled
-
-[56217]_Changing name with empty first name or empty last name
+[56217]_Changing name with empty fields
     Save button is enabled
     Clear First Name
     Save button is disabled
