@@ -27,5 +27,5 @@ Add cookies to browser
     \    Add Cookie    ${cookie_name}    ${cookie_value}
 
 Wait until progress bar is completed
-    Wait Until Element Is Visible    //body/div[2]/div/div[1]    ${gl_timeout}
-    Wait Until Element Is Not Visible    //body/div[2]/div/div[1]    ${gl_timeout}    Progress bar still visible after ${gl_timeout} seconds
+    Comment    Wait Until Element Is Visible    //body/div[2]/div/div[1]    ${gl_timeout}
+    Comment    Wait Until Element Is Not Visible    //body/div[2]/div/div[1]    ${gl_timeout}    Progress bar still visible after ${gl_timeout} seconds
