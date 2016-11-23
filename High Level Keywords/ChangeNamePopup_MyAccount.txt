@@ -46,7 +46,7 @@ Change Name successful
     Wait Until Page Contains Element    ${MyAccount_Notification}    ${gl_timeout}    Change name notification couldn't be found after changed name
     ${number_of_notifications}=    Get Matching Xpath Count    ${MyAccount_Notification}
     Should Be Equal As Numbers    ${number_of_notifications}    1    Change name notification is duplicated
-    Element Text Should Be    ${MyAccount_Notification}    Name has been changed    Change name notification is displayed incorrectly
+    Element Text Should Be    ${MyAccount_Notification}    Changes saved.    Change name notification is displayed incorrectly
     Wait Until Element Is Not Visible    ${MyAccount_Notification}    5s    Change name notification didn't disappear after 5 seconds
     Verify name after changed    ${first_name}    ${last_name}
     Click Sign out
